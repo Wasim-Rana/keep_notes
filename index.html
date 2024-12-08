@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTEBOOK</title>
+    <link rel="stylesheet" href="n.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+</head>
+<body>
+    <header>
+        <i class="fa-sharp fa-solid  fa-book fas "></i>
+            <H1>NOTEBOOK APPLICATION</H1>
+    </header>
+    <section class="main">
+        <div class="left">
+            <H3> Save your notes</H3>
+            <form action="">
+                <input type="text" placeholder=" title " id="title" value="">
+                <br>
+                <textarea  placeholder="note" rows="20" cols="30" id="note" value=""></textarea>
+                <br>
+                <br>
+                <button id="btn"> SAVE </button>
+            </form>
+        </div>
+        <div class="right" id="right"></div>
+    </section>
+    <script src="./n.js"></script>
+</body>
+</html>
+
+
+let todoInput = document.getElementById('todo-input');
+let addButton = document.getElementById('add-btn'); // Corrected the ID name to 'add-btn'
+let todoList = document.getElementById('todo-list');
+
+addButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    let todoText = todoInput.value.trim();
+    if (todoText === '') return;
+
+    let li = document.createElement('li');
+    li.innerHTML = `
+        <span>${todoText}</span>
+        <div class="task-actions">
+            <input type="checkbox">
+            <button class="edit"><i class="fas fa-pen"></i></button>
+            <button class="delete"><i class="fas fa-trash"></i></button>
+        </div>
+    `;
+    todoList.appendChild(li);
+    todoInput.value = '';
+
+    addEventListeners(li);
+});
+
+function addEventListeners(taskItem) {
+    let deleteButton = taskItem.querySelector('.delete');
+    deleteButton.addEventListener('click', () => {
+        taskItem.remove();
+    });
+
+    let editButton = taskItem.querySelector('.edit');
+    editButton.addEventListener('click', () => {
+        todoInput.value = taskItem.querySelector('span').textContent;
+        taskItem.remove();
+    });
+
+    let checkbox = taskItem.querySelector('input[type="checkbox"]');
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            taskItem.classList.add('completed');
+        } else {
+            taskItem.classList.remove('completed');
+        }
+    });
+}
