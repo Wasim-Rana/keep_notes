@@ -18,7 +18,8 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, rgb(6, 6, 6), #ffffff, rgb(6, 6, 6));
+    /* background: linear-gradient(to right, rgb(6, 6, 6), #ffffff, rgb(6, 6, 6)); */
+    background: linear-gradient(to right, #030027, #ffffff, #172d44);
     color: black;
 }
 
@@ -48,7 +49,7 @@ header>i{
     flex-direction:column ;
     justify-content: flex-start;
     align-items:flex-start;
-    background: linear-gradient(to bottom ,rgb(54, 54, 54), #44403a, rgb(54, 53, 53));
+    background-color: #030027;
     padding: 20px;
 }
 .left>h3{
@@ -56,7 +57,7 @@ header>i{
     font-size: 26px;
     font-weight: 500;
     padding-left: 40px;
-    color: black;
+    color: fff;
 
 }
 .left>h3:hover{
@@ -104,14 +105,14 @@ header>i{
 .right{
     height: 100%;
     width: 65%;
-    background-color: rgb(34, 34, 34);
+    background-color: #172d44;
     color: white;
     padding: 20px;
     cursor: pointer;
     
 }
 button{
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(24, 41, 74);
     border-radius: 20px;
     color: white;
     width: 50%;
@@ -136,7 +137,7 @@ button:hover{
     width: auto;
     display: flex;
     align-items: center;
-    /* margin: 20px; */
+    margin-bottom: 20px;
     justify-content: space-around;
     border: 1px solid grey;
     border-radius:5px ;
@@ -145,7 +146,7 @@ button:hover{
 
 .right>div:hover{
     border-radius: 5px;
-    box-shadow: 0px 1px 1px 1px rgb(80, 80, 80) ;
+    box-shadow: 0px 5px 10px 1px  #030027 ;
     scale: 1.03;
 }
 
